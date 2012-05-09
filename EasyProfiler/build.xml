@@ -1,0 +1,36 @@
+<project name="org.eclipse.birt.test.profile" default="start" basedir=".">
+	<!-- compile source, compile this project -->
+	<property name="src.dir" location="src"/>
+	<property name="bin.dir" location="build"/>
+	<property name="dist.dir" location="dist"/>
+	<property name="lib.dir" location="lib" />
+	<property name="http.dir" location="../ServerBase/build/server/http" />
+	
+	<target name="compileSource"  description="compile this project">
+		<mkdir dir="${bin.dir}"/>
+		<echo message="start compiling ..."/>
+		<javac srcdir="${src.dir}" destdir="${bin.dir}" source="1.6" target="1.6" debug="true" encoding="utf-8" failonerror="true">
+			<classpath>
+			    <fileset dir="${lib.dir}">
+                      <include name="*.jar"/>
+                </fileset>
+			</classpath>
+		</javac>
+		<echo message="finish compiling ..."/>
+	</target>
+	
+	<target name="start" depends="compileSource" >
+		<copy todir="${bin.dir}/server/http" overwrite="true">
+          <fileset dir="${http.dir}">
+           <include name="*.*"/>
+         </fileset>
+        </copy>
+		<jar destfile="${dist.dir}/profile.jar" basedir="${bin.dir}" manifest="${src.dir}/META-INF/MANIFEST.MF"/>
+		<copy todir="${dist.dir}" overwrite="false">
+          <fileset dir="${lib.dir}">
+           <include name="*.*"/>
+         </fileset>
+        </copy>
+	</target>
+	
+</project>

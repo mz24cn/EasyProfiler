@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Easy Profiler</title>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<style>
+body,td {font-family:'Arial Narrow';font-size:12px; color:#000000; background-color:#FFFFF;}
+div.body {color:#000000; background-color:#F1F1F1; font-size:12px; margin-left:6px; margin-top:6px; margin-right:0px; margin-bottom:5px;}
+#menuSwitch {overflow:hidden; height:17px; margin-top:-5px; text-align:center; background-color:#DDDDDD; margin-left:-4px;  vertical-align:bottom; font-size:16px; color:#000000;}
+div.xtree {margin-left:-20px;}
+.Node {white-space:nowrap}
+.Node img {margin-left:2px;}
+.Node span {font-family:Verdana; font-size:12px; height:17px; border:0px solid #E0E0E0; padding:2;}
+.Node span a {color:#000000; text-decoration:none}
+input.selector {display:inline}
+span.focus {background-color:#3A6EA5; border:1px solid #333333;font-family:Verdana; font-size:12px; height:17px;}
+span.focus a {color:#FFFFFF; text-decoration:none}
+.menu {border:1px solid #0000FF; background-color:#FFFFFF; display: none}
+.detail {position:absolute; width:450px; z-index:1; display: none}
+.look {text-weight:bold;}
+.load {margin:-3px -4px; color:#000000; background-color:#E0E0E0; filter:alpha(opacity=50)}
+.container {padding-left:15px;}
+</style>
+<script language="javascript" src="UltraTree.js"></script>
+<script language="javascript" src="ClassTree.js"></script>
+<script>window.onload=function(){initialize("/", "tree?", "name", "ascending", "tree", "classTree");}</script>
+</head>
+<body>
+<div width='100' style='float:right;text-align:right'><span color='gray'>V1.0.120411 <a href='mailto:mz24cn@hotmail.com'>advice</a></span></div>
+<h2>Easy Profiler</h2>
+<div class="xtree">
+  <div id="/"><input style="display:none"/><img style="display:none"/><span style="margin-left:20px">Class Tree: <a href="/reload">reload</a></span><div class="container"></div></div>
+</div>
+<div id="//menu" class="menu" style="position:absolute; width:100px; z-index:1; display: none">
+</div>
+<div id="//detail" class="menu detail">
+</div>
+</body>
+</html>
