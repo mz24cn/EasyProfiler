@@ -2,4 +2,16 @@ EasyProfiler
 
 An easy way to probe the run time and call times of any java methods in work environment without overhead
 
-Written by ZHANG Hua. 
+Usage:
+1. package the application using build.xml, it will be generated under .\dist.
+2. add "-javaagent:{INSTALL_DIR}profile.jar=30079,30080 -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=30079" to iServer service's vm arguments.
+3. restart java application to enable the agent and hotswap.
+4. visit http://{SERVER_NAME}:30080/ to access hotswap profiler configuration and result viewing page.
+5. Click left class package tree to expand it, click on the checkbox before any method of any class to designate interested methods.
+6. Run the application and you can view the method run time and calling times in hotswap profiler.
+
+Note: on AIX machine (using IBM J9 JVM), please run command before first clicking any method:
+	java -cp profiler.jar;javassist.jar;tools.jar org.eclipse.birt.test.hotswap.Controller
+otherwise the hotswap connection will fail.
+
+Written by ZHANG Hua(mz24cn@hotmail.com). 

@@ -6,7 +6,7 @@ public class ReportPanel {
 
 	public static long nanos[] = new long[255];
 	public static int times[] = new int[255];
-	public static boolean counting = false;
+	public static boolean counting = true;
 	
 	public static void begin() {
 		counting = true;
